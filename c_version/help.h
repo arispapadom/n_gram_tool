@@ -22,7 +22,7 @@ void help() {
      printf("\t   parameter required\n");
      
      printf("\n\t option3: -f[number] \t output n-grams with frequency >= [number]\n");
-     printf("\t   default: if parameter does not exist all n-grams produced\n");
+     printf("\t   default: if parameter does not exist all n-grams are produced\n");
      
      printf("\n\t option4: -s[number] \t manage [number] consecutive n-grams\n");
      printf("\t   default: -s1\n");

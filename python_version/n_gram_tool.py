@@ -6,6 +6,24 @@ import help
 import character_n_grams
 import word_n_grams
 
+'''
+***********************************************************
+***		main check of arguments							***
+***														***
+***		Parameters:										***
+***			n: number of chars							***
+***			t: (character | word) n-grams				***
+***					default: c (character)				***
+***			f: minimum frequency - default 1 (all)		***
+***			s: number of consecutive n-grams			***
+***			o: order by the output						***
+***					default: 0 corresponding to input	***
+***			view: print frequencies to output or not	***
+***														***
+***********************************************************
+'''
+
+
 def main_check():
 	valid=0;
 	not_valid=0;
@@ -16,9 +34,11 @@ def main_check():
 	args=sys.argv
 
 	argv=[]
+	#get all arguments to a list
 	for i in range(1,len(args)):
 		argv.append(args[i][0:2])
 
+	#validate arguments and get their properies
 	if len(args)==2 and args[1]=='-h':
 		help.call_help()
 		sys.exit()
@@ -88,13 +108,15 @@ def main_check():
 		print("\nInput file "+ args[len(args) - 2] + " does not exist.")
 		sys.exit()
 
-
+#main script
 main_check()
 if '-w' in argv:
+	#extract word n-grams
 	start=time.time()
 	word_n_grams.word_n_grams(parameters, sys.argv[len(sys.argv)-2], sys.argv[len(sys.argv)-1])
 	end=time.time()
 else:
+	#extract character n-grams
 	start=time.time()
 	character_n_grams.characters_n_grams(parameters, sys.argv[len(sys.argv)-2], sys.argv[len(sys.argv)-1])
 	end=time.time()
